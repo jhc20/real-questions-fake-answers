@@ -1,0 +1,15 @@
+!!!
+html
+  head
+    title= title
+    link(href='/stylesheets/style.css', rel='stylesheet')
+    link(rel="apple-touch-icon-precomposed", href="img/icon.png")
+    link(rel="apple-touch-startup-image", href="img/splash.png")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+    meta(name="apple-mobile-web-app-capable",content="yes")
+    script(src='http://code.jquery.com/jquery-1.6.1.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/scripts/chat.js')
+    script(src='http://widgets.twimg.com/j/2/widget.js')
+    script(src='https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places')
+  body!= body

@@ -1,0 +1,32 @@
+style
+    *, body { margin:0;padding:0}
+    body{margin-top: -40px;}
+
+script
+    new TWTR.Widget({
+      version: 2,
+      type: 'search',
+      search: '@sfu',
+      interval: 3000,
+      title: '',
+      subject: 'Happing on Campus',
+      width: 'auto',
+      height: 300,
+      theme: {
+        shell: {
+          background: '#ffffff',
+          color: '#ffffff'
+        },
+        tweets: {
+          background: '#FAFAFA',
+          color: '#939ba7',
+          links: '#dce1e4'
+        }
+      },
+      features: {
+        scrollbar: false,
+        loop: true,
+        live: true,
+        behavior: 'default'
+      }
+    }).render().start();

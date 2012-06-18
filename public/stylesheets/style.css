@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #FAFAFA;
+
+}
+
+a {
+    color: #00B7FF;
+}
+
+p{ margin-bottom: 10px;}
+
+#wrapper {
+
+    margin-left: 140px;
+}
+
+form#send-message, form#set-nickname {
+    background-color: #dce1e4;
+    border-top: 1px #ffffff solid;
+
+    border-bottom: 1px #ffffff solid;
+
+    margin-left: 40px;
+
+    padding: 30px;
+
+}
+
+form#send-message {
+    display: none;
+
+}
+
+input#message, input#nick {
+    min-width: 70%;
+    height: 40px;
+    padding: 0 10px;
+    box-shadow: inset 0 0 10px #000000;
+
+}
+
+form#send-message button, form#set-nickname button {
+    margin-left: 20px;
+    height: 40px;
+    width: 120px;
+}
+
+#lines {
+    margin-left: 40px;
+
+    max-height: 800px;
+}
+
+.user-meta {
+    width: 100px;
+    float: left;
+    clear: left;
+    padding: 30px;
+    text-shadow: 1px 1px 1px #fff;
+    color: #949c9f
+}
+
+.user-message {
+    padding: 30px;
+    color: #939ba7;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.line {
+    min-height: 100px;
+
+}
+
+.line:nth-child(odd) {
+    position: relative;
+    background-color: #f4f4f0;
+    border-top: 1px #dbdbda solid;
+
+    border-bottom: 1px #dbdbda solid
+}
+
+.line:nth-child(odd):after, .line:nth-child(even):after {
+    content: "";
+    position: absolute;
+    top: 35px;
+    left: -30px;
+    bottom: auto;
+
+    display: block;
+    width: 0;
+    border-style: solid;
+
+}
+
+.line:nth-child(odd):after {
+    border-color: transparent #f4f4f0;
+    border-width: 0px 30px 20px 0;
+
+}
+
+.line:nth-child(even):after {
+    border-color: transparent #DCE1E4;
+    border-width: 20px 30px 0px 0;
+
+}
+
+.line:nth-child(even) {
+
+    position: relative;
+    background-color: #dce1e4;
+    border-top: 1px #ffffff solid;
+
+    border-bottom: 1px #ffffff solid
+}
+
+.announcement {
+    padding: 10px 30px;
+    color: #EEE;
+    background-color: white;
+    border-top: 1px #ffffff solid;
+
+    border-bottom: 1px #ffffff solid
+}
+
+div.avatar {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background-color: #b9bec1;
+    left: -140px;
+    border: 4px white solid;
+    box-shadow: 0px 2px 5px 0px #CCC;
+}
+
+@media all and (max-width: 320px) {
+    body {
+        padding: 0
+    }
+
+    #wrapper {
+        margin-left: 0;
+    }
+
+    .avatar {
+        display: none;
+    }
+
+    .user-meta {width:30px}
+
+    #lines {
+        margin-left: 0;
+        max-height: 640px;
+    }
+
+    .line:nth-child(odd):after {
+        display: none;
+
+    }
+
+    .line:nth-child(even):after {
+        display: none
+
+    }
+
+    form#send-message, form#set-nickname {
+
+        margin-left: 0px;
+        padding: 10px;
+
+    }
+
+
+    form#send-message button, form#set-nickname button {
+    display: none;
+
+    }
+
+
+    .line {
+        min-height: 20px;
+
+    }
+
+    input#message, input#nick {
+        height: 30px;
+        min-width: 90%;
+    }
+
+}
+
+
+img.webcam{ border: white 10px solid;     box-shadow: 0px 2px 5px 0px #CCC; margin-right: 20px; margin-top: 10px;}
+
+iframe.twitter { width:70%; height: 120px; border: white 10px solid;     box-shadow: 0px 2px 5px 0px #CCC; margin-top: 10px;}
+
+iframe.map { width:70%; height: 300px; border: white 10px solid;     box-shadow: 0px 2px 5px 0px #CCC; margin-top: 10px;}
