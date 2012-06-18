@@ -1,13 +1,20 @@
 #wrapper
     #chat
-      #nickname
-        form#set-nickname
-          input(type="text", placeholder="Please pick a nickname")#nick
-          button Submit
-      form#send-message
-        input(type="text", placeholder="Enter your message here")#message
-        button Send
-      #messages
-        #nicknames
-        #lines
+    - if (!nickname)
+
+        #nickname
+            form#set-nickname
+              input(type="text", placeholder="Please pick a nickname")#nick
+              button Submit
+        form#send-message
+            input(type="text", placeholder="Enter your message here")#message
+            button Send
+    - else
+        form#send-message(style='display:block')
+            input(type="text", placeholder="Enter your message here")#message
+            button Send
+
+    #messages
+    #nicknames
+    #lines
 

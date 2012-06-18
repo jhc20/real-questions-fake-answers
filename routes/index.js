@@ -4,7 +4,7 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Real Questions, Fake Answers' })
+  res.render('index', { title: 'Real Questions, Fake Answers', nickname: req.session.nickname })
 };
 
 exports.twitter= function(req, res){
