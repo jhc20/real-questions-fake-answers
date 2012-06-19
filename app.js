@@ -84,37 +84,47 @@ io.set('authorization',
                 if (new_msg.toLowerCase().indexOf('help') !== -1) {
                     var message = 'Try out these keywords in combination: weather, burnaby, new, food'
                         ;
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', message);
                 }
 
                 else if (new_msg.toLowerCase().indexOf('weather') !== -1 && new_msg.toLowerCase().indexOf('burnaby') !== -1) {
-                    var message = '<p>Why not take a look yourself?</p><p></p>'
-                            + '<img class="webcam" width="220" height="140" border="0" alt="University Drive North" src="http://www.sfu.ca/%7Enetops/webcams/libcam.jpg">'
+                    var message = 'Why not take a look yourself?' ;
+                    var extra =  '<img class="webcam" width="220" height="140" border="0" alt="University Drive North" src="http://www.sfu.ca/%7Enetops/webcams/libcam.jpg">'
                             + '<img class="webcam" width="220" height="140" border="0" alt="Convocation Mall" src="http://www.sfu.ca/~netops/webcams/mallcam.jpg">'
                             + '<img class="webcam" width="220" height="140" border="0" alt="Gaglardi Intersection" src="http://www.sfu.ca/~netops/webcams/gaglardicam.jpg">'
                         ;
-                    socket.emit('user message', 'Siri', message);
-                    socket.broadcast.emit('user message', 'Siri', message);
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
+                    socket.emit('user message', 'Siri', '<p>'+message+'</p><p></p>'+extra);
+                    socket.broadcast.emit('user message', 'Siri', '<p>'+message+'</p><p></p>'+extra);
                 }
 
                 else if (new_msg.toLowerCase().indexOf('new') !== -1) {
-                    var message = '<p>This is what people are takling about recently:</p>'
-                        + '<iframe class="twitter" src="./twitter" scrolling="no"></iframe>'
-                    socket.emit('user message', 'Siri', message);
-                    socket.broadcast.emit('user message', 'Siri', message);
+                    var message = 'This is what people are talking about recently:'   ;
+                    var extra =  '<iframe class="twitter" src="./twitter" scrolling="no"></iframe>'
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
+                    socket.emit('user message', 'Siri', '<p>'+message+'</p>' + extra);
+                    socket.broadcast.emit('user message', 'Siri', '<p>'+message+'</p>' + extra);
                 }
 
                 else if (new_msg.toLowerCase().indexOf('food') !== -1 && new_msg.toLowerCase().indexOf('burnaby') !== -1) {
-                    var message = '<p>Sadly, not much good food can be found around Burnaby campus:</p>'
-                        + '<iframe class="map" src="./map" scrolling="no"></iframe>'
+                    var message = 'Sadly, not much good food can be found around Burnaby campus</p>'
+                    var extra =  ':<iframe class="map" src="./map" scrolling="no"></iframe>'
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
-                    socket.broadcast.emit('user message', 'Siri', message);
+                    socket.broadcast.emit('user message', 'Siri', '<p>'+message+'</p>'+extra);
                 }
 
                 else if (new_msg.toLowerCase().indexOf('meaning') !== -1 && new_msg.toLowerCase().indexOf('life') !== -1) {
 
                     var message = '42'
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', 'Siri', message);
 
@@ -122,13 +132,17 @@ io.set('authorization',
                 else if (new_msg.toLowerCase().indexOf('hi') !== -1 || new_msg.toLowerCase().indexOf('hello') !== -1) {
 
                     var message = 'Hi, How can I help you?'
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', 'Siri', message);
 
                 }
-                else if (new_msg.toLowerCase().indexOf('chick') !== -1 || new_msg.toLowerCase().indexOf('waterm') !== -1) {
+                else if (new_msg.toLowerCase().indexOf('waterm') !== -1) {
 
                     var message = 'I will not answer a racist question'
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', 'Siri', message);
 
@@ -136,6 +150,17 @@ io.set('authorization',
                 else if (new_msg.toLowerCase().indexOf('thank') !== -1) {
 
                     var message = 'You are welcome';
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
+                    socket.emit('user message', 'Siri', message);
+                    socket.broadcast.emit('user message', 'Siri', message);
+
+                }
+                else if (new_msg.toLowerCase().indexOf('spacedick') !== -1) {
+
+                    var message = 'I\'d rather not talk about that';
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', 'Siri', message);
 
@@ -143,6 +168,8 @@ io.set('authorization',
                 else if (new_msg.toLowerCase().indexOf('joke') !== -1) {
 
                     var message = 'Ted and John walk into a bar... I forget the rest...';
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', 'Siri', message);
 
@@ -150,6 +177,8 @@ io.set('authorization',
                 else if (new_msg.toLowerCase().indexOf('sandwich') !== -1) {
 
                     var message = 'I prefer making Chinese food, do you want me make some?';
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', 'Siri', message);
 
@@ -157,12 +186,16 @@ io.set('authorization',
                 else if (new_msg.toLowerCase().indexOf('yes') !== -1) {
 
                     var message = 'Ok, just a second.';
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', 'Siri', message);
 
                 }
                 else {
-                    var message = 'I do not know the answer of that question. For more information, click my name first and enter "help"'
+                    var message = 'I do not know the answer of that question. For more information, click my name first and enter help' ;
+                    socket.emit('speech',message);
+                    socket.broadcast.emit('speech',message);
                     socket.emit('user message', 'Siri', message);
                     socket.broadcast.emit('user message', 'Siri', message);
                 }
@@ -198,8 +231,13 @@ io.set('authorization',
 
                 socket.broadcast.emit('announcement', new_nick + ' connected');
 
-                socket.emit('user message', 'Siri', 'Hello ' + socket.nickname + '! Welcome to Real Questions, Fake Answers.');
-                socket.emit('user message', 'Siri', 'Click my name and enter "help" for more information');
+                var greeting =   'Hello ' + socket.nickname + ' Welcome to Real Questions, Fake Answers ';
+                var extra = 'Click my name and enter help for more information'
+                socket.emit('user message', 'Siri', greeting);
+                socket.emit('speech',  greeting + extra);
+
+
+                socket.emit('user message', 'Siri', extra);
                 io.sockets.emit('nicknames', nicknames);
             }
         });

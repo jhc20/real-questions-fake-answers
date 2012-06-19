@@ -21,6 +21,14 @@ socket.on('reconnect', function () {
     message('System', 'Reconnected to the server');
 });
 
+socket.on('speech',function(msg){
+
+    msg = msg.split(' ').join('+');
+    //alert(audio);
+    $('#speech').attr('src', 'http://translate.google.com/translate_tts?tl=en&q='+msg);
+
+})
+
 socket.on('reconnecting', function () {
     message('System', 'Attempting to re-connect to the server');
 });
@@ -32,6 +40,8 @@ socket.on('error', function (e) {
 function message (from, msg) {
     //$('#lines').append($('<div class="line">').append($('<b>').text(from), msg));
     $('#lines').prepend('<div class="line"> <div class="avatar"></div>  <div class="user-meta">'+from+' : </div> <div class="user-message">'+msg+'</div> </div>')
+
+
 }
 
 // dom manipulation
@@ -53,13 +63,13 @@ $(function () {
     $('#set-nickname').submit(function (ev) {
         socket.emit('nickname', $('#nick').val(), function (set, err) {
             if (!set) {
-
                 $('#set-nickname').slideUp();
                 $('#send-message').slideDown();
                 clear();
                 return $('#chat').addClass('nickname-set');
+
             }
-            alert(err);
+            //alert(err);
             //$('#nickname-err').css('visibility', 'visible');
         });
 
