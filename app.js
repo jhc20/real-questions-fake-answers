@@ -15,7 +15,7 @@ var express = require('express')
 var app = module.exports = express.createServer(), io = require('socket.io').listen(app);
 ;
 
-// Configuration 4
+// Configuration 5
 
 
 app.configure(function () {
